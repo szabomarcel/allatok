@@ -32,13 +32,23 @@ class Database{
         return false;
     }
     
-    public function register($name, $pass) {
+    public function register($name, $pass, $emailcim, $orokbedogado_neve, $igazolvamyszam) {
         //$password = password_hash($pass, PASSWORD_BCRYPT);
-        $stmt = $this->db->prepare('INSERT INTO `users`(`name`, `password`) VALUES(?,?);') ;
-        $stmt->bind_param("ss", $name, $pass);
-        if($stmt->execute()){
+        $stmt = $this->db->prepare('INSERT INTO `users`(`user`, `password`, `emailcim`, `orokbefogado_neve`, `igazolvanyszam`) VALUES(?,?,?,?,?);') ;
+        $stmt->bind_param("sssss", $name, $pass, $emailcim, $orokbedogado_neve, $igazolvamyszam);
+        if ($stmt->execute()) {
+            //echo $stmt->affected_rows();
             $_SESSION['login'] = true;
-            header("Location: index.php");
+            //header("Location: index.php");
+        } else {
+            $_SESSION['login'] = false;
+            echo '<p>Rögzítés sikertelen!</p>';
         }
     }
+    public function getallatok($id) {
+        $sql = "SELECT *  FROM `users` WHERE `user` = $id AND `statusz` = 0;";
+        $result = $this->db->query($sql);
+        return $result->fetch_assoc();
+    }
+
 }

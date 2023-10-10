@@ -2,13 +2,16 @@
     if(filter_input(INPUT_POST, "regisztraciosAdatok", FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)){
         $pass1 = filter_input(INPUT_POST, "InputPassword");
         $pass2 = filter_input(INPUT_POST, "InputPassword2");
+        $emailcim = filter_input(INPUT_POST, "emailcim");
+        $orokbedogado_neve = filter_input(INPUT_POST, "orokbefogado_neve");
+        $igazolvanyszam = filter_input(INPUT_POST, "igazolvanyszam");
         $name = htmlspecialchars(filter_input(INPUT_POST, "username"));
-        var_dump($pass1, $pass2);
+        var_dump($pass1, $pass2, $emailcim, $orokbedogado_neve, $igazolvanyszam);
         if($pass1 != $pass2){
             echo '<p>Nem egyezik meg a jelszó</p>';
         }else{
             //-- regisztráció inditása
-            $db -> register($name, $pass1);
+            $db -> register($name, $pass1, $emailcim, $orokbedogado_neve, $igazolvanyszam);
             header("Location: index.php"); // Átvált a nyitólapra.
         }
     }
@@ -19,6 +22,18 @@
           <label for="exampleInputEmail1" class="form-label">Felhasználói név: </label>
           <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" >
           <div id="usernameHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="emailcim" class="form-label">Emailcim: </label>
+          <input type="emailcim" class="form-control" id="emailcim" name="emailcim">
+        </div>
+        <div class="mb-3">
+          <label for="orokbefogado_neve" class="form-label">Örökbefogado neve: </label>
+          <input type="orokbefogado_neve" class="form-control" id="orokbefogado_neve" name="orokbefogado_neve">
+        </div>
+        <div class="mb-3">
+          <label for="igazolvanyszam" class="form-label">Igazolvanyszam: </label>
+          <input type="igazolvanyszam" class="form-control" id="igazolvanyszam" name="igazolvanyszam">
         </div>
         <div class="mb-3">
           <label for="InputPassword" class="form-label">Jelszó: </label>

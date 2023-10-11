@@ -17,5 +17,6 @@
     require_once './layout/footer.php';
 ?>    
 <script src="./bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>    
+<script src="./js/menhely.js"></script>
 </body>
 </html>

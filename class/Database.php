@@ -6,7 +6,7 @@ class Database{
     }
     public function login($name, $pass) {
         //-- jelezzük a végrehajtandó SQL parancsot
-        $stmt = $this->db->prepare('SELECT * FROM `users` WHERE users.name LIKE ?;');
+        $stmt = $this->db->prepare('SELECT * FROM `users` WHERE user LIKE ?;');
         //-- leküldjük a végrehajtáshoz szükséges adatok
         $stmt -> bind_param("s", $name);
         if($stmt ->execute()){
@@ -16,7 +16,7 @@ class Database{
             var_dump($row);            
             if ($pass == $row['password']) {
                //-- felhasználónév és jelszó helyes
-                $_SESSION['username'] = $row['name'];
+                $_SESSION['username'] = $row['user'];
                 $_SESSION['login'] = true;
             } else {
                 $_SESSION['username'] = '';
@@ -45,10 +45,4 @@ class Database{
             echo '<p>Rögzítés sikertelen!</p>';
         }
     }
-    public function getallatok($id) {
-        $sql = "SELECT *  FROM `users` WHERE `user` = $id AND `statusz` = 0;";
-        $result = $this->db->query($sql);
-        return $result->fetch_assoc();
-    }
-
 }

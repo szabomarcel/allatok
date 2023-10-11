@@ -54,3 +54,7 @@ nav, .logo{
     /*color: black; /* Hover állapot szövegszín */
     border-radius: 12px;
 }
+
+#form-label{
+    text-align: center;
+}

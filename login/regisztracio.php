@@ -6,7 +6,7 @@
         $orokbedogado_neve = filter_input(INPUT_POST, "orokbefogado_neve");
         $igazolvanyszam = filter_input(INPUT_POST, "igazolvanyszam");
         $name = htmlspecialchars(filter_input(INPUT_POST, "username"));
-        //var_dump($pass1, $pass2, $emailcim, $orokbedogado_neve, $igazolvanyszam);
+        var_dump($pass1, $pass2, $emailcim, $orokbedogado_neve, $igazolvanyszam);
         if($pass1 != $pass2){
             echo '<p>Nem egyezik meg a jelszó</p>';
         }else{

@@ -3,15 +3,15 @@
         $pass1 = filter_input(INPUT_POST, "InputPassword");
         $pass2 = filter_input(INPUT_POST, "InputPassword2");
         $emailcim = filter_input(INPUT_POST, "emailcim");
-        $orokbedogado_neve = filter_input(INPUT_POST, "orokbefogado_neve");
+        $orokbefogado_neve = filter_input(INPUT_POST, "orokbefogado_neve");
         $igazolvanyszam = filter_input(INPUT_POST, "igazolvanyszam");
         $name = htmlspecialchars(filter_input(INPUT_POST, "username"));
-        var_dump($pass1, $pass2, $emailcim, $orokbedogado_neve, $igazolvanyszam);
+        var_dump($pass1, $pass2, $emailcim, $orokbefogado_neve, $igazolvanyszam);
         if($pass1 != $pass2){
             echo '<p>Nem egyezik meg a jelszó</p>';
         }else{
             //-- regisztráció inditása
-            $db -> register($name, $pass1, $emailcim, $orokbedogado_neve, $igazolvanyszam);
+            $db -> register($name, $pass1, $emailcim, $orokbefogado_neve, $igazolvanyszam);
             header("Location: index.php"); // Átvált a nyitólapra.
         }
     }    
@@ -30,12 +30,12 @@
           </div>
           <div class="mb-3 col-5">
             <label for="igazolvanyszam" class="form-label">Igazolvanyszam: </label>
-            <input type="igazolvanyszam" class="form-control" id="igazolvanyszam" name="igazolvanyszam" pattern="[1-9]{1}[0-9]{5}[A-Za-z]{2}" required>
+            <input type="text" class="form-control" id="igazolvanyszam" name="igazolvanyszam" pattern="[1-9]{1}[0-9]{5}[A-Za-z]{2}" required>
           </div>
         </div>
         <div class="mb-3">
           <label for="orokbefogado_neve" class="form-label">Örökbefogado neve: </label>
-          <input type="orokbefogado_neve" class="form-control" id="orokbefogado_neve" name="orokbefogado_neve" pattern="[A-Za-z]{0,10}" required> 
+          <input type="text" class="form-control" id="orokbefogado_neve" name="orokbefogado_neve" pattern="[A-Za-z]{0,10}" required> 
         </div>        
         <div class="row">
           <div class="mb-3 col-6">

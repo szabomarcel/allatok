@@ -12,25 +12,25 @@
         <?php
             if($_SESSION['login']){
                 echo '<li class="nav-item"> 
-                        <a class="nav-link'. ($menu == 'orokbefogadasUser'?'active' : '') .'" aria-current="page" href="index.php?menu=orokbefogadasUser">Örökbefogadás</a> 
+                        <a class="nav-link'. ($menu == 'orokbefogadasUser'?' active ': '') .'" aria-current="page" href="index.php?menu=orokbefogadasUser">Örökbefogadás</a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link'. ($menu == 'orokbefogadasUser'?'active' : '') .'" href="index.php?menu=logout">Kilépés</a>
+                        <a class="nav-link'. ($menu == 'logout'?' active' : '') .'" href="index.php?menu=logout">Kilépés</a>
                     </li>';
             } else {
                 echo '<li class="nav-item">
-                        <a class="nav-link'. ($menu == 'orokbefogadasUser'?'active' : '') .'" aria-current="page" href="index.php?menu=orokbefogadasGuest">Örökbefogadás</a>
+                        <a class="nav-link'. ($menu == 'orokbefogadasGuest'?' active' : '') .'" aria-current="page" href="index.php?menu=orokbefogadasGuest">Örökbefogadás</a>
                     </li>'
                 .'<li class="nav-item">
-                    <a class="nav-link'. ($menu == 'orokbefogadasUser'?'active' : '') .'" href="index.php?menu=login">Belépés</a>
+                    <a class="nav-link'. ($menu == 'login'?' active' : '') .'" href="index.php?menu=login">Belépés</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link'. ($menu == 'orokbefogadasUser'?'active' : '') .'" href="index.php?menu=register">Regisztráció</a>
+                    <a class="nav-link'. ($menu == 'register'?' active' : '') .'" href="index.php?menu=register">Regisztráció</a>
                 </li>';
             }
         ?>        
         <li class="nav-item">
-            <a class="nav-link <?php echo ($menu == 'orokbefogadasUser'?'active' : '');?>" href="index.php?menu=rolunk">Rólunk</a>
+            <a class="nav-link <?php echo ($menu == 'rolunk'?' active' : '');?>" href="index.php?menu=rolunk">Rólunk</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

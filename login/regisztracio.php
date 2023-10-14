@@ -20,7 +20,7 @@
     <form action="#" method="post">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Felhasználói név: </label>
-          <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" minlength="3" maxlength="50" required>
+          <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" minlength="3" maxlength="50" aria-describedby="emailHelp" required>
           <div id="usernameHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="row">
@@ -30,21 +30,21 @@
           </div>
           <div class="mb-3 col-5">
             <label for="igazolvanyszam" class="form-label">Igazolvanyszam: </label>
-            <input type="text" class="form-control" id="igazolvanyszam" name="igazolvanyszam" pattern="[1-9]{1}[0-9]{5}[A-Za-z]{2}" required>
+            <input type="text" class="form-control" id="igazolvanyszam" name="igazolvanyszam" pattern="[1-9]{1}[0-9]{5}[A-Za-z]{2}" maxlength="8" required>
           </div>
         </div>
         <div class="mb-3">
           <label for="orokbefogado_neve" class="form-label">Örökbefogado neve: </label>
-          <input type="text" class="form-control" id="orokbefogado_neve" name="orokbefogado_neve" pattern="[A-Za-z]{0,10}" required> 
+          <input type="text" class="form-control" id="orokbefogado_neve" name="orokbefogado_neve" pattern="[A-Za-z]{0,10}" minlength="1" required> 
         </div>        
         <div class="row">
           <div class="mb-3 col-6">
             <label for="InputPassword" class="form-label">Jelszó: </label>
-            <input type="password" class="form-control" id="InputPassword" name="InputPassword" pattern="[A-Za-z]{0,100}" required>
+            <input type="password" class="form-control" id="InputPassword" name="InputPassword" pattern="[A-Za-z]{0,100}" minlength="2" required>
           </div>
           <div class="mb-3 col-6">
             <label for="InputPassword2" class="form-label">Jelszó: </label>
-            <input type="password" class="form-control" id="InputPassword2" name="InputPassword2" pattern="[A-Za-z]{0,100}" required>
+            <input type="password" class="form-control" id="InputPassword2" name="InputPassword2" pattern="[A-Za-z]{0,100}" minlength="2" required>
           </div>
         </div>
         <button type="submit" class="btn btn-primary" name="regisztraciosAdatok" value="true">Regisztáció</button>

@@ -29,13 +29,22 @@ class Database {
         //$password = password_hash($pass, PASSWORD_BCRYPT);
         $stmt = $this->db->prepare('INSERT INTO `users`(`user`, `password`, `emailcim`, `orokbefogado_neve`, `igazolvanyszam`) VALUES(?,?,?,?,?);') ;
         $stmt->bind_param("sssss", $name, $pass1 , $emailcim, $orokbefogado_neve, $igazolvamyszam);
-        if ($stmt->execute()) {
+        try {
+            if ($stmt->execute()) {
+                $_SESSION['login'] = true;
+                header("location: index.php");
+            }
+        } catch (Exception $e) {
+
+            echo 'Error: ' . $e->getMessage();
+        }
+        /*if ($stmt->execute()) {
             //echo $stmt->affected_rows();
             $_SESSION['login'] = true;
             //header("Location: index.php");
         } else {
             $_SESSION['login'] = false;
             echo '<p>Rögzítés sikertelen!</p>';
-        }
+        }*/
     }
 }

@@ -26,7 +26,7 @@
         <div class="row">
           <div class="mb-3 col-7 has validation">
             <label for="emailcim" class="form-label">Email cim: </label>
-            <input type="email" class="form-control" id="emailcim" name="emailcim" required>
+            <input type="email" class="form-control" id="emailcim" minlength="1" name="emailcim" required>
           </div>
           <div class="mb-3 col-5">
             <label for="igazolvanyszam" class="form-label">Igazolvanyszam: </label>

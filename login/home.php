@@ -1,7 +1,9 @@
 <h1>Nyitólap</h1>
+<div class="container">
+    <div class="row">
         <?php
             foreach ($db->osszesAllat() as $row) {
-            $card = '<div class="card" style="width: 18rem;">
+            $card = '<div class="card m-3" style="width: 18rem;">
                         <img src="./kepek/noimage.png" class="card-img-top"  alt="...">
                         <div class="card-body">
                             <h5 class="card-title">'.$row['allat_neve'].'</h5>
@@ -17,4 +19,5 @@
                 echo $card;
             }
         ?>
+    </div>
 </div>

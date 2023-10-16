@@ -1,4 +1,13 @@
 <?php
+    /*function validSzig($param) {
+      $pattern = "/[1-9]{1}[0-9]{5}[A-Za-z]{2}/";
+      echo '<pre>';
+      var_dump("123", preg_match($pattern, "123"));
+      var_dump("12356AA", preg_match($pattern, "123"));
+      echo '</pre>';
+      return preg_match($pattern, $param);
+    }*/
+
     if(filter_input(INPUT_POST, "regisztraciosAdatok", FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)){
         $pass1 = filter_input(INPUT_POST, "InputPassword");
         $pass2 = filter_input(INPUT_POST, "InputPassword2");

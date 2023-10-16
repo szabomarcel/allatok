@@ -14,15 +14,15 @@ class Database {
     
     if ($stmt->execute()) {
         $stmt->store_result();
-        if ($stmt->num_rows > 0) {
-            $_SESSION['login'] = true;
-            header("Location: index.php");
-        } else {
-            echo "Nem megfelelő bejelentkezési adat!"; 
+            if ($stmt->num_rows > 0) {
+                $_SESSION['login'] = true;
+                header("Location: index.php");
+            } else {
+                echo "Nem megfelelő bejelentkezési adat!"; 
+            }
         }
+        $stmt->close();
     }
-    $stmt->close();
-}
 
 
     public function register($name, $pass1 , $emailcim, $orokbefogado_neve, $igazolvamyszam) {
@@ -46,5 +46,13 @@ class Database {
             $_SESSION['login'] = false;
             echo '<p>Rögzítés sikertelen!</p>';
         }*/
+    }
+    function osszesallat(){
+        $result = $this->db->query("SELECT * FROM `allat`");
+        return $result->fetch_all(MYSQLI_ASSOC);        
+    }
+    function allatkivalasztas($id){
+        $result = $this->db->query("SELECT * FROM `allat` WHERE allatid=".$id);
+        return $result->fetch_all(MYSQLI_ASSOC);        
     }
 }

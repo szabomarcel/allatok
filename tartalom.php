@@ -1,6 +1,12 @@
 <?php
-
 switch ($menu) {
+    case 'home':
+        if(filter_input($id = INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT)){
+            require './login/allatkivalasztas.php';
+        }else{
+            require_once './login/home.php';
+        }
+        break;
     case 'orokbefogadas':
         require_once './login/orokbefogadasUser.php';
         break;

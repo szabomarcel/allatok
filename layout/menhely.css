@@ -58,3 +58,8 @@ nav, .logo{
 #form-label{
     text-align: center;
 }
+
+.card-img, .card-img-top{
+    max-height: 150px;
+    width: auto;
+}

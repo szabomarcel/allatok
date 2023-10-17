@@ -47,12 +47,20 @@ class Database {
             echo '<p>Rögzítés sikertelen!</p>';
         }*/
     }
-    function osszesallat(){
+    public function osszesallat(){
         $result = $this->db->query("SELECT * FROM `allat`");
         return $result->fetch_all(MYSQLI_ASSOC);        
     }
-    function allatkivalasztas($id){
+    public function allatkivalasztas($id){
         $result = $this->db->query("SELECT * FROM `allat` WHERE allatid=".$id);
         return $result->fetch_all(MYSQLI_ASSOC);        
+    }
+    public function getFajok() {
+        $result = $this->db->query("SELECT DISTINCT `faj` FROM `allat`;");         
+        return $result->fetch_all();
+    }
+    public function getfajtak() {
+        $result = $this->db->query("SELECT DISTINCT `fajta` FROM `allat`;");         
+        return $result->fetch_all();
     }
 }

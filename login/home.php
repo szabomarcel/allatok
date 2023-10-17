@@ -1,10 +1,20 @@
-<h1>Nyitólap</h1>
 <div class="container">
     <div class="row">
         <?php
             foreach ($db->osszesAllat() as $row) {
+            $image = null;
+            if ("./kepek/allatkepek/".$row['allat_neve'].".jpg"){
+                $image = "./kepek/allatkepek/".$row['allat_neve'].".jpg";
+            }else if("./kepek/allatkepek/".$row['allat_neve'].".jpeg"){
+                $image = "./kepek/allatkepek/".$row['allat_neve'].".jpeg";
+            }else if("./kepek/allatkepek/".$row['allat_neve'].".png"){
+                $image = "./kepek/allatkepek/".$row['allat_neve'].".png";
+            }else{
+                $image = "./kepek/noimage/.png";
+            }
+                
             $card = '<div class="card m-3" style="width: 18rem;">
-                        <img src="./kepek/noimage.png" class="card-img-top"  alt="...">
+                        <img src="'.$image.'" class="card-img-top"  alt="...">
                         <div class="card-body">
                             <h5 class="card-title">'.$row['allat_neve'].'</h5>
                             <p class="card-text">'.$row['allat_neve'].

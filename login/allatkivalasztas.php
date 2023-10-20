@@ -17,6 +17,24 @@
             $forras = $_FILES['kepfajl']['tmp_name'];
             $cel = DIRECTORY_SEPARATOR ."\\kepek\\allatkepek\\". DIRECTORY_SEPARATOR.$adatok['allat_neve'].$kiterjesztes;
             copy($cel, $forras);
+            if (!file_exists($cel_mappa)) {
+                mkdir($cel_mappa, 0777, true); // Mappa létrehozása, ha nem létezik
+            }
+            
+            $cel = $cel_mappa . $allat_neve . '.' . $kiterjesztes;
+            
+            if (copy($forras, $cel)) {
+                // Sikeres másolás
+            } else {
+                // Hiba kezelése
+            }
+            
+            function sanitizeFilename($filename) {
+                // Egyedi fájlnév létrehozása: csak engedélyezett karakterek és esetleg egyedi azonosítók
+                $filename = preg_replace("/[^a-zA-Z0-9_.-]/", "", $filename);
+                $filename = time() . '_' . $filename; // Hozzáadunk egy időbélyeget
+                return $filename;
+            }
         }
     }else{
         $adatok = $db->allatkivalasztas($id);

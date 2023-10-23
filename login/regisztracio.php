@@ -59,3 +59,26 @@
         <button type="submit" class="btn btn-primary" name="regisztraciosAdatok" value="true">Regisztáció</button>
     </form>
 </div>
+<!--<script>
+    var passwordInputs = document.querySelectorAll("input[type=password]");
+    function validPass(password) {
+        console.log(password);
+        let theLength = /.{6,32}/;
+        let lowerCase = /[a-z]/;
+        let upperCase = /[A-Z]/;
+        let digit = /[0-9]/;
+        let specialChars = /^[a-zA-Z0-9]/;
+        if (theLength.test(password) &&
+                lowerCase.test(password) &&
+                upperCase.test(password) &&
+                digit.test(password) &&
+                specialChars.test(password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function passStrength(password) {
+        let strength = password.length;
+    }
+</script>-->

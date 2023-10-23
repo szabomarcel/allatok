@@ -7,6 +7,7 @@
     if(!isset($_SESSION['login'])) {$_SESSION['login'] = false;}
 
     require_once './layout/head.php';
+    //$menu = filter_input(INPUT_GET, "menu");
 ?>
 <body>
 <?php
